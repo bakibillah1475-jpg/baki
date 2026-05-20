@@ -22,8 +22,6 @@ body{
   color:#111827;
 }
 
-/* APP */
-
 .app{
   width:100%;
   max-width:1200px;
@@ -33,8 +31,6 @@ body{
   overflow:hidden;
   box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
-
-/* DESKTOP */
 
 @media(min-width:900px){
 
@@ -136,20 +132,21 @@ select:focus{
   margin:0;
 }
 
-/* BUTTON */
+/* MAIN BUTTON */
 
 .main-btn{
   width:100%;
-  height:60px;
+  height:64px;
   border:none;
-  border-radius:20px;
+  border-radius:22px;
   background:#2563eb;
   color:white;
-  font-size:17px;
+  font-size:18px;
   font-weight:700;
   cursor:pointer;
   transition:0.2s;
-  margin-top:16px;
+  margin-top:18px;
+  box-shadow:0 6px 18px rgba(37,99,235,0.18);
 }
 
 .main-btn:hover{
@@ -164,29 +161,59 @@ select:focus{
 
 .action-buttons{
   display:flex;
-  gap:12px;
-  margin-top:20px;
+  gap:18px;
+  margin-top:28px;
 }
+
+/* COPY + PRINT */
 
 .copy-btn,
 .print-btn{
   flex:1;
-  height:56px;
+  min-height:78px;
   border:none;
-  border-radius:18px;
-  font-size:15px;
+  border-radius:24px;
+  font-size:20px;
   font-weight:700;
   cursor:pointer;
+  transition:0.2s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  width:100%;
 }
+
+/* COPY */
 
 .copy-btn{
   background:#111827;
   color:white;
+  box-shadow:0 6px 18px rgba(17,24,39,0.15);
 }
 
+.copy-btn:hover{
+  background:#000000;
+}
+
+.copy-btn:active{
+  transform:scale(0.98);
+}
+
+/* PRINT */
+
 .print-btn{
-  background:#e5e7eb;
-  color:#111827;
+  background:#2563eb;
+  color:white;
+  box-shadow:0 6px 18px rgba(37,99,235,0.18);
+}
+
+.print-btn:hover{
+  background:#1d4ed8;
+}
+
+.print-btn:active{
+  transform:scale(0.98);
 }
 
 /* ERROR */
@@ -305,6 +332,15 @@ select:focus{
 
   .action-buttons{
     flex-direction:column;
+    gap:18px;
+    margin-top:28px;
+  }
+
+  .copy-btn,
+  .print-btn{
+    min-height:82px;
+    font-size:20px;
+    border-radius:24px;
   }
 
 }
@@ -379,7 +415,7 @@ select:focus{
 
     </div>
 
-    <!-- LOCKED -->
+    <!-- LOCKED VALUE -->
 
     <div class="input-box">
 
@@ -436,7 +472,7 @@ select:focus{
 
     </div>
 
-    <!-- POUND -->
+    <!-- POUND PRICE -->
 
     <div class="input-box">
 
@@ -446,6 +482,20 @@ select:focus{
         type="number"
         id="poundPrice"
         placeholder="Optional"
+      >
+
+    </div>
+
+    <!-- TOTAL ORDER QUANTITY -->
+
+    <div class="input-box">
+
+      <label>Total Order Quantity</label>
+
+      <input
+        type="number"
+        id="orderQuantity"
+        placeholder="Enter total order quantity"
       >
 
     </div>
@@ -474,9 +524,7 @@ select:focus{
       >
 
       <label for="adhesiveCheck">
-
         Add Adhesive Cost
-
       </label>
 
     </div>
@@ -492,9 +540,7 @@ select:focus{
       >
 
       <label for="blockCheck">
-
         Add Block Cost
-
       </label>
 
     </div>
@@ -505,18 +551,6 @@ select:focus{
       id="blockSection"
       style="display:none; margin-top:18px;"
     >
-
-      <div class="input-box">
-
-        <label>Order Quantity</label>
-
-        <input
-          type="number"
-          id="orderQuantity"
-          placeholder="Enter order quantity"
-        >
-
-      </div>
 
       <div class="input-box">
 
@@ -538,9 +572,7 @@ select:focus{
       class="main-btn"
       onclick="calculatePrice()"
     >
-
       Calculate Final Price
-
     </button>
 
     <!-- ERROR -->
@@ -549,132 +581,50 @@ select:focus{
       class="error"
       id="errorMessage"
     >
-
-      Please enter Height,
-      Weight and Thickness.
-
+      Please enter Height, Weight and Thickness.
     </div>
 
     <!-- RESULTS -->
 
     <div class="results">
 
-      <h2>
-        Results
-      </h2>
+      <h2>Results</h2>
 
       <div class="results-grid">
 
-        <!-- QUANTITY -->
-
         <div class="card">
-
-          <span>
-            Quantity
-          </span>
-
-          <h3 id="quantity">
-
-            0 PC
-
-          </h3>
-
+          <span>Quantity</span>
+          <h3 id="quantity">0 PC</h3>
         </div>
 
-        <!-- MATERIAL -->
-
         <div class="card">
-
-          <span>
-            Per PC Material Price
-          </span>
-
-          <h3 id="materialPrice">
-
-            -
-
-          </h3>
-
+          <span>Per PC Material Price</span>
+          <h3 id="materialPrice">-</h3>
         </div>
 
-        <!-- COLOR -->
-
         <div class="card">
-
-          <span>
-            Color Cost
-          </span>
-
-          <h3 id="colorCost">
-
-            0 Tk
-
-          </h3>
-
+          <span>Color Cost</span>
+          <h3 id="colorCost">0 Tk</h3>
         </div>
 
-        <!-- ADHESIVE -->
-
         <div class="card">
-
-          <span>
-            Adhesive Cost
-          </span>
-
-          <h3 id="adhesiveCost">
-
-            0 Tk
-
-          </h3>
-
+          <span>Adhesive Cost</span>
+          <h3 id="adhesiveCost">0 Tk</h3>
         </div>
 
-        <!-- BLOCK -->
-
         <div class="card">
-
-          <span>
-            Block Cost Per PC
-          </span>
-
-          <h3 id="blockCostResult">
-
-            0 Tk
-
-          </h3>
-
+          <span>Block Cost Per PC</span>
+          <h3 id="blockCostResult">0 Tk</h3>
         </div>
 
-        <!-- TOTAL POUND -->
-
         <div class="card">
-
-          <span>
-            Total Pound Needed
-          </span>
-
-          <h3 id="totalPound">
-
-            0 LB
-
-          </h3>
-
+          <span>Total Pound Needed</span>
+          <h3 id="totalPound">0 LB</h3>
         </div>
-
-        <!-- FINAL -->
 
         <div class="card final">
-
-          <span>
-            Final Per PC Price
-          </span>
-
-          <h3 id="finalPrice">
-
-            0 Tk
-
-          </h3>
-
+          <span>Final Per PC Price</span>
+          <h3 id="finalPrice">0 Tk</h3>
         </div>
 
       </div>
@@ -687,14 +637,14 @@ select:focus{
           class="copy-btn"
           onclick="copyResult()"
         >
-          Copy Result
+          📋 Copy Result
         </button>
 
         <button
           class="print-btn"
           onclick="window.print()"
         >
-          Print
+          🖨️ Print Result
         </button>
 
       </div>
@@ -707,10 +657,7 @@ select:focus{
 
       Developed by Baki Billah <br>
 
-      <a
-        href="https://www.bakibillah.com"
-        target="_blank"
-      >
+      <a href="https://www.bakibillah.com" target="_blank">
         www.bakibillah.com
       </a>
 
@@ -722,8 +669,6 @@ select:focus{
 
 <script>
 
-/* TOGGLE BLOCK */
-
 function toggleBlock(){
 
   const block =
@@ -732,39 +677,24 @@ function toggleBlock(){
   const section =
     document.getElementById("blockSection");
 
-  if(block.checked){
-
-    section.style.display = "block";
-
-  }else{
-
-    section.style.display = "none";
-
-  }
+  section.style.display =
+    block.checked ? "block" : "none";
 
 }
-
-/* CONVERT */
 
 function convertToInch(value, unit){
 
   if(unit === "cm"){
-
     return value / 2.54;
-
   }
 
   if(unit === "meter"){
-
     return value * 39.3701;
-
   }
 
   return value;
 
 }
-
-/* CALCULATE */
 
 function calculatePrice(){
 
@@ -772,29 +702,22 @@ function calculatePrice(){
     document.getElementById("unit").value;
 
   let height =
-    parseFloat(
-      document.getElementById("height").value
-    );
+    parseFloat(document.getElementById("height").value);
 
   let weight =
-    parseFloat(
-      document.getElementById("weight").value
-    );
+    parseFloat(document.getElementById("weight").value);
 
   let thickness =
-    parseFloat(
-      document.getElementById("thickness").value
-    );
+    parseFloat(document.getElementById("thickness").value);
 
   let poundPrice =
-    parseFloat(
-      document.getElementById("poundPrice").value
-    );
+    parseFloat(document.getElementById("poundPrice").value);
+
+  let orderQty =
+    parseFloat(document.getElementById("orderQuantity").value) || 0;
 
   let colors =
-    parseFloat(
-      document.getElementById("colors").value
-    ) || 0;
+    parseFloat(document.getElementById("colors").value) || 0;
 
   const adhesiveEnabled =
     document.getElementById("adhesiveCheck").checked;
@@ -802,13 +725,7 @@ function calculatePrice(){
   const blockEnabled =
     document.getElementById("blockCheck").checked;
 
-  /* VALIDATION */
-
-  if(
-    !height ||
-    !weight ||
-    !thickness
-  ){
+  if(!height || !weight || !thickness){
 
     document.getElementById("errorMessage").style.display =
       "block";
@@ -820,20 +737,11 @@ function calculatePrice(){
   document.getElementById("errorMessage").style.display =
     "none";
 
-  /* CONVERT */
-
-  height =
-    convertToInch(height, unit);
-
-  weight =
-    convertToInch(weight, unit);
-
-  /* QUANTITY */
+  height = convertToInch(height, unit);
+  weight = convertToInch(weight, unit);
 
   const quantity =
     75000 / height / weight / thickness;
-
-  /* MATERIAL */
 
   let materialPrice = 0;
 
@@ -844,12 +752,8 @@ function calculatePrice(){
 
   }
 
-  /* COLORS */
-
   const colorCost =
     colors * 0.15;
-
-  /* ADHESIVE */
 
   let adhesiveCost = 0;
 
@@ -860,18 +764,9 @@ function calculatePrice(){
 
   }
 
-  /* BLOCK */
-
   let blockPerPc = 0;
 
-  let orderQty = 0;
-
   if(blockEnabled){
-
-    orderQty =
-      parseFloat(
-        document.getElementById("orderQuantity").value
-      ) || 0;
 
     const blockCost =
       parseFloat(
@@ -887,15 +782,11 @@ function calculatePrice(){
 
   }
 
-  /* FINAL */
-
   const finalPrice =
     materialPrice +
     colorCost +
     adhesiveCost +
     blockPerPc;
-
-  /* TOTAL POUND */
 
   let totalPound = 0;
 
@@ -906,22 +797,13 @@ function calculatePrice(){
 
   }
 
-  /* OUTPUT */
-
   document.getElementById("quantity").innerHTML =
     quantity.toFixed(2) + " PC";
 
-  if(poundPrice){
-
-    document.getElementById("materialPrice").innerHTML =
-      materialPrice.toFixed(4) + " Tk";
-
-  }else{
-
-    document.getElementById("materialPrice").innerHTML =
-      "-";
-
-  }
+  document.getElementById("materialPrice").innerHTML =
+    poundPrice
+      ? materialPrice.toFixed(4) + " Tk"
+      : "-";
 
   document.getElementById("colorCost").innerHTML =
     colorCost.toFixed(4) + " Tk";
@@ -940,30 +822,22 @@ function calculatePrice(){
 
 }
 
-/* COPY RESULT */
-
 function copyResult(){
 
   const unit =
     document.getElementById("unit").value;
 
   let height =
-    parseFloat(
-      document.getElementById("height").value
-    );
+    parseFloat(document.getElementById("height").value);
 
   let weight =
-    parseFloat(
-      document.getElementById("weight").value
-    );
+    parseFloat(document.getElementById("weight").value);
 
   const thickness =
     document.getElementById("thickness").value;
 
   const finalPrice =
     document.getElementById("finalPrice").innerText;
-
-  /* ALWAYS CONVERT TO CM */
 
   if(unit === "inch"){
 
