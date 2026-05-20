@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Material Cost Calculator</title>
 
@@ -13,15 +13,13 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
+  font-family:Inter,Arial,sans-serif;
 }
 
 body{
-  font-family: Inter, Arial, sans-serif;
   background:#eef2f7;
-  min-height:100vh;
+  padding:14px;
   color:#111827;
-  padding:15px;
 }
 
 /* APP */
@@ -30,16 +28,15 @@ body{
   width:100%;
   max-width:1200px;
   margin:auto;
-  background:#ffffff;
-  border-radius:28px;
+  background:white;
+  border-radius:30px;
   overflow:hidden;
-  box-shadow:
-  0 10px 30px rgba(0,0,0,0.08);
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
 /* DESKTOP */
 
-@media(min-width:768px){
+@media(min-width:900px){
 
   .app{
     display:grid;
@@ -53,31 +50,31 @@ body{
 .header{
   background:linear-gradient(135deg,#0f172a,#1e3a8a);
   color:white;
-  padding:40px 30px;
+  padding:50px 34px;
   display:flex;
   flex-direction:column;
   justify-content:center;
 }
 
 .header h1{
-  font-size:36px;
+  font-size:40px;
   line-height:1.3;
-  margin-bottom:14px;
+  margin-bottom:15px;
 }
 
 .header p{
-  font-size:15px;
+  opacity:0.9;
   line-height:1.8;
-  opacity:0.85;
+  font-size:15px;
 }
 
 /* CONTENT */
 
 .content{
-  padding:30px 22px;
+  padding:30px 24px;
 }
 
-/* INPUT */
+/* INPUTS */
 
 .input-box{
   margin-bottom:18px;
@@ -85,9 +82,9 @@ body{
 
 label{
   display:block;
-  margin-bottom:9px;
+  margin-bottom:8px;
   font-size:14px;
-  font-weight:600;
+  font-weight:700;
   color:#374151;
 }
 
@@ -95,8 +92,8 @@ input,
 select{
   width:100%;
   height:58px;
+  border-radius:18px;
   border:1px solid #d1d5db;
-  border-radius:16px;
   padding:0 16px;
   font-size:16px;
   background:white;
@@ -122,11 +119,11 @@ select:focus{
   display:flex;
   align-items:center;
   gap:12px;
-  padding:16px;
-  border-radius:16px;
   background:#f8fafc;
   border:1px solid #e5e7eb;
-  margin-top:5px;
+  border-radius:18px;
+  padding:16px;
+  margin-top:10px;
 }
 
 .checkbox-wrap input{
@@ -137,43 +134,71 @@ select:focus{
 
 .checkbox-wrap label{
   margin:0;
-  font-size:15px;
 }
 
 /* BUTTON */
 
-button{
+.main-btn{
   width:100%;
   height:60px;
   border:none;
-  border-radius:18px;
+  border-radius:20px;
   background:#2563eb;
   color:white;
-  font-size:18px;
+  font-size:17px;
   font-weight:700;
-  margin-top:12px;
   cursor:pointer;
   transition:0.2s;
+  margin-top:16px;
 }
 
-button:hover{
+.main-btn:hover{
   background:#1d4ed8;
 }
 
-button:active{
+.main-btn:active{
   transform:scale(0.98);
+}
+
+/* ACTION BUTTONS */
+
+.action-buttons{
+  display:flex;
+  gap:12px;
+  margin-top:20px;
+}
+
+.copy-btn,
+.print-btn{
+  flex:1;
+  height:56px;
+  border:none;
+  border-radius:18px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.copy-btn{
+  background:#111827;
+  color:white;
+}
+
+.print-btn{
+  background:#e5e7eb;
+  color:#111827;
 }
 
 /* ERROR */
 
 .error{
+  display:none;
+  margin-top:18px;
+  padding:14px;
+  border-radius:14px;
   background:#fef2f2;
   color:#dc2626;
   border:1px solid #fecaca;
-  padding:14px;
-  border-radius:14px;
-  margin-top:18px;
-  display:none;
   font-size:14px;
   font-weight:600;
 }
@@ -181,12 +206,26 @@ button:active{
 /* RESULTS */
 
 .results{
-  margin-top:28px;
+  margin-top:34px;
 }
 
 .results h2{
-  font-size:24px;
   margin-bottom:18px;
+  font-size:24px;
+}
+
+.results-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+}
+
+@media(min-width:700px){
+
+  .results-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
 }
 
 /* CARD */
@@ -194,20 +233,20 @@ button:active{
 .card{
   background:#f8fafc;
   border:1px solid #e5e7eb;
-  border-radius:20px;
-  padding:20px;
-  margin-bottom:15px;
+  border-radius:24px;
+  padding:24px;
+  box-shadow:0 5px 12px rgba(0,0,0,0.03);
 }
 
 .card span{
   display:block;
-  color:#6b7280;
   font-size:13px;
-  margin-bottom:8px;
+  color:#6b7280;
+  margin-bottom:10px;
 }
 
 .card h3{
-  font-size:26px;
+  font-size:28px;
   word-break:break-word;
 }
 
@@ -224,72 +263,72 @@ button:active{
   color:white;
 }
 
-/* DESKTOP RESULT GRID */
-
-@media(min-width:768px){
-
-  .results-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-  }
-
-  .card{
-    margin-bottom:0;
-  }
-
-  .final{
-    grid-column:1/-1;
-  }
-
-}
-
 /* FOOTER */
 
 .footer{
-  margin-top:30px;
   text-align:center;
-  font-size:13px;
+  margin-top:34px;
   color:#6b7280;
+  font-size:13px;
   line-height:1.8;
 }
 
 .footer a{
   color:#2563eb;
   text-decoration:none;
-  font-weight:600;
-}
-
-.footer a:hover{
-  text-decoration:underline;
+  font-weight:700;
 }
 
 /* MOBILE */
 
-@media(max-width:767px){
+@media(max-width:700px){
 
   body{
     padding:10px;
   }
 
   .header{
-    padding:28px 22px;
+    padding:34px 24px;
   }
 
   .header h1{
-    font-size:28px;
-  }
-
-  .header p{
-    font-size:14px;
+    font-size:30px;
   }
 
   .content{
-    padding:20px;
+    padding:22px;
   }
 
   .card h3{
-    font-size:22px;
+    font-size:24px;
+  }
+
+  .action-buttons{
+    flex-direction:column;
+  }
+
+}
+
+/* PRINT */
+
+@media print{
+
+  body{
+    background:white;
+    padding:0;
+  }
+
+  .header,
+  .footer,
+  button,
+  .action-buttons,
+  .input-box,
+  .checkbox-wrap{
+    display:none;
+  }
+
+  .app{
+    box-shadow:none;
   }
 
 }
@@ -311,11 +350,11 @@ button:active{
     </h1>
 
     <p>
-      Smart calculator for quantity,
-      material pricing,
-      adhesive cost,
-      color charge,
-      and final per-piece pricing.
+      Professional calculator for quantity,
+      material price,
+      adhesive,
+      block cost
+      and total pound requirement.
     </p>
 
   </div>
@@ -332,17 +371,9 @@ button:active{
 
       <select id="unit">
 
-        <option value="inch">
-          Inch
-        </option>
-
-        <option value="cm">
-          CM
-        </option>
-
-        <option value="meter">
-          Meter
-        </option>
+        <option value="inch">Inch</option>
+        <option value="cm">CM</option>
+        <option value="meter">Meter</option>
 
       </select>
 
@@ -367,9 +398,7 @@ button:active{
 
     <div class="input-box">
 
-      <label>
-        Thickness (MM) *
-      </label>
+      <label>Thickness (MM) *</label>
 
       <input
         type="number"
@@ -383,9 +412,7 @@ button:active{
 
     <div class="input-box">
 
-      <label>
-        Height *
-      </label>
+      <label>Height *</label>
 
       <input
         type="number"
@@ -399,9 +426,7 @@ button:active{
 
     <div class="input-box">
 
-      <label>
-        Weight *
-      </label>
+      <label>Weight *</label>
 
       <input
         type="number"
@@ -411,13 +436,11 @@ button:active{
 
     </div>
 
-    <!-- POUND PRICE -->
+    <!-- POUND -->
 
     <div class="input-box">
 
-      <label>
-        Pound Price
-      </label>
+      <label>Pound Price</label>
 
       <input
         type="number"
@@ -431,9 +454,7 @@ button:active{
 
     <div class="input-box">
 
-      <label>
-        Number of Colors
-      </label>
+      <label>Number of Colors</label>
 
       <input
         type="number"
@@ -453,14 +474,70 @@ button:active{
       >
 
       <label for="adhesiveCheck">
+
         Add Adhesive Cost
+
       </label>
 
     </div>
 
-    <!-- BUTTON -->
+    <!-- BLOCK -->
 
-    <button onclick="calculatePrice()">
+    <div class="checkbox-wrap">
+
+      <input
+        type="checkbox"
+        id="blockCheck"
+        onchange="toggleBlock()"
+      >
+
+      <label for="blockCheck">
+
+        Add Block Cost
+
+      </label>
+
+    </div>
+
+    <!-- BLOCK SECTION -->
+
+    <div
+      id="blockSection"
+      style="display:none; margin-top:18px;"
+    >
+
+      <div class="input-box">
+
+        <label>Order Quantity</label>
+
+        <input
+          type="number"
+          id="orderQuantity"
+          placeholder="Enter order quantity"
+        >
+
+      </div>
+
+      <div class="input-box">
+
+        <label>Block Cost</label>
+
+        <input
+          type="number"
+          id="blockCost"
+          placeholder="Enter block cost"
+        >
+
+      </div>
+
+    </div>
+
+    <!-- CALCULATE -->
+
+    <button
+      class="main-btn"
+      onclick="calculatePrice()"
+    >
 
       Calculate Final Price
 
@@ -468,9 +545,13 @@ button:active{
 
     <!-- ERROR -->
 
-    <div class="error" id="errorMessage">
+    <div
+      class="error"
+      id="errorMessage"
+    >
 
-      Please enter Height, Weight and Thickness.
+      Please enter Height,
+      Weight and Thickness.
 
     </div>
 
@@ -478,7 +559,9 @@ button:active{
 
     <div class="results">
 
-      <h2>Results</h2>
+      <h2>
+        Results
+      </h2>
 
       <div class="results-grid">
 
@@ -546,6 +629,38 @@ button:active{
 
         </div>
 
+        <!-- BLOCK -->
+
+        <div class="card">
+
+          <span>
+            Block Cost Per PC
+          </span>
+
+          <h3 id="blockCostResult">
+
+            0 Tk
+
+          </h3>
+
+        </div>
+
+        <!-- TOTAL POUND -->
+
+        <div class="card">
+
+          <span>
+            Total Pound Needed
+          </span>
+
+          <h3 id="totalPound">
+
+            0 LB
+
+          </h3>
+
+        </div>
+
         <!-- FINAL -->
 
         <div class="card final">
@@ -561,6 +676,26 @@ button:active{
           </h3>
 
         </div>
+
+      </div>
+
+      <!-- ACTION BUTTONS -->
+
+      <div class="action-buttons">
+
+        <button
+          class="copy-btn"
+          onclick="copyResult()"
+        >
+          Copy Result
+        </button>
+
+        <button
+          class="print-btn"
+          onclick="window.print()"
+        >
+          Print
+        </button>
 
       </div>
 
@@ -587,7 +722,29 @@ button:active{
 
 <script>
 
-/* CONVERT TO INCH */
+/* TOGGLE BLOCK */
+
+function toggleBlock(){
+
+  const block =
+    document.getElementById("blockCheck");
+
+  const section =
+    document.getElementById("blockSection");
+
+  if(block.checked){
+
+    section.style.display = "block";
+
+  }else{
+
+    section.style.display = "none";
+
+  }
+
+}
+
+/* CONVERT */
 
 function convertToInch(value, unit){
 
@@ -607,7 +764,7 @@ function convertToInch(value, unit){
 
 }
 
-/* MAIN CALCULATION */
+/* CALCULATE */
 
 function calculatePrice(){
 
@@ -642,6 +799,9 @@ function calculatePrice(){
   const adhesiveEnabled =
     document.getElementById("adhesiveCheck").checked;
 
+  const blockEnabled =
+    document.getElementById("blockCheck").checked;
+
   /* VALIDATION */
 
   if(
@@ -660,7 +820,7 @@ function calculatePrice(){
   document.getElementById("errorMessage").style.display =
     "none";
 
-  /* AUTO CONVERT */
+  /* CONVERT */
 
   height =
     convertToInch(height, unit);
@@ -673,7 +833,7 @@ function calculatePrice(){
   const quantity =
     75000 / height / weight / thickness;
 
-  /* MATERIAL PRICE */
+  /* MATERIAL */
 
   let materialPrice = 0;
 
@@ -684,7 +844,7 @@ function calculatePrice(){
 
   }
 
-  /* COLOR COST */
+  /* COLORS */
 
   const colorCost =
     colors * 0.15;
@@ -700,19 +860,56 @@ function calculatePrice(){
 
   }
 
+  /* BLOCK */
+
+  let blockPerPc = 0;
+
+  let orderQty = 0;
+
+  if(blockEnabled){
+
+    orderQty =
+      parseFloat(
+        document.getElementById("orderQuantity").value
+      ) || 0;
+
+    const blockCost =
+      parseFloat(
+        document.getElementById("blockCost").value
+      ) || 0;
+
+    if(orderQty > 0){
+
+      blockPerPc =
+        blockCost / orderQty;
+
+    }
+
+  }
+
   /* FINAL */
 
   const finalPrice =
     materialPrice +
     colorCost +
-    adhesiveCost;
+    adhesiveCost +
+    blockPerPc;
+
+  /* TOTAL POUND */
+
+  let totalPound = 0;
+
+  if(quantity > 0 && orderQty > 0){
+
+    totalPound =
+      orderQty / quantity;
+
+  }
 
   /* OUTPUT */
 
   document.getElementById("quantity").innerHTML =
     quantity.toFixed(2) + " PC";
-
-  /* OPTIONAL MATERIAL PRICE */
 
   if(poundPrice){
 
@@ -732,8 +929,65 @@ function calculatePrice(){
   document.getElementById("adhesiveCost").innerHTML =
     adhesiveCost.toFixed(4) + " Tk";
 
+  document.getElementById("blockCostResult").innerHTML =
+    blockPerPc.toFixed(4) + " Tk";
+
   document.getElementById("finalPrice").innerHTML =
     finalPrice.toFixed(4) + " Tk";
+
+  document.getElementById("totalPound").innerHTML =
+    totalPound.toFixed(2) + " LB";
+
+}
+
+/* COPY RESULT */
+
+function copyResult(){
+
+  const unit =
+    document.getElementById("unit").value;
+
+  let height =
+    parseFloat(
+      document.getElementById("height").value
+    );
+
+  let weight =
+    parseFloat(
+      document.getElementById("weight").value
+    );
+
+  const thickness =
+    document.getElementById("thickness").value;
+
+  const finalPrice =
+    document.getElementById("finalPrice").innerText;
+
+  /* ALWAYS CONVERT TO CM */
+
+  if(unit === "inch"){
+
+    height = height * 2.54;
+    weight = weight * 2.54;
+
+  }
+
+  if(unit === "meter"){
+
+    height = height * 100;
+    weight = weight * 100;
+
+  }
+
+  const text =
+`Height: ${height.toFixed(2)} CM
+Weight: ${weight.toFixed(2)} CM
+Thickness: ${thickness} MM
+Final Price: ${finalPrice}`;
+
+  navigator.clipboard.writeText(text);
+
+  alert("Result copied successfully!");
 
 }
 
